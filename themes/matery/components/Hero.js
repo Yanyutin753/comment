@@ -84,7 +84,7 @@ const Hero = props => {
       <LazyImage
         priority={true}
         id='header-cover'
-        src={siteInfo?.pageCover}
+        src={siteInfo?.pageCover.split('?')[0]}
         className={`header-cover object-center w-full h-screen object-cover ${siteConfig('MATERY_HOME_NAV_BACKGROUND_IMG_FIXED', null, CONFIG) ? 'fixed' : ''}`}
       />
     </header>
