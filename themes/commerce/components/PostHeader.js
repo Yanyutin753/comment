@@ -7,8 +7,8 @@ export default function PostHeader({ post }) {
   if (!post) {
     return <></>
   }
-  const headerImage = post?.pageCover ? post.pageCover : siteConfig('HOME_BANNER_IMAGE')
-
+  const temImage = post?.pageCover ? post.pageCover : siteConfig('HOME_BANNER_IMAGE')
+  const headerImage = temImage ? temImage.url.split('?')[0] : "https://www.notion.so/images/page-cover/nasa_space_shuttle_challenger.jpg";
   return (
     <div id="header" className="w-full h-96 relative md:flex-shrink-0 z-10" >
       <LazyImage priority={true} src={headerImage} className='w-full h-full object-cover object-center absolute top-0'/>
