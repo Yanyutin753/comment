@@ -95,15 +95,22 @@ const GlobalHead = props => {
 
   return (
     <Head>
-      <link rel='icon' href={favicon} />
+      <meta charset="utf-8" />
+      {/* <link rel='icon' href={favicon} /> */}
+      <link rel="icon" href="/public/favicon.ico" />
       <title>{title}</title>
       <meta name='theme-color' content={BACKGROUND_DARK} />
-      <meta
+      {/* <meta
         name='viewport'
         content='width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0'
-      />
+      /> */}
       <meta name='robots' content='follow, index' />
-      <meta charSet='UTF-8' />
+      <link rel="manifest" href="%sveltekit.assets%/manifest.json" crossorigin="use-credentials" />
+      {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */}
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+      <meta name="robots" content="noindex,nofollow" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
       {SEO_GOOGLE_SITE_VERIFICATION && (
         <meta
           name='google-site-verification'
