@@ -27,7 +27,7 @@ const GlobalHead = props => {
   const type = meta?.type || 'website'
   const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 這樣的格式才抓得到語言
   const category = meta?.category || siteConfig('KEYWORDS') // section 主要是像是 category 這樣的分類，Facebook 用這個來抓連結的分類
-  // const favicon = siteConfig('BLOG_FAVICON')
+`  const favicon = siteConfig('BLOG_FAVICON')`
   const webFontUrl = siteConfig('FONT_URL')
   const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
 
@@ -96,8 +96,8 @@ const GlobalHead = props => {
   return (
     <Head>
       <meta charset="utf-8" />
-      {/* <link rel='icon' href={favicon} /> */}
-      <link rel="icon" href="/public/favicon.ico" />
+      <link rel='icon' href={favicon} />
+      {/* <link rel="icon" href="/public/favicon.ico" /> */}
       <title>{title}</title>
       <meta name='theme-color' content={BACKGROUND_DARK} />
       {/* <meta
@@ -105,7 +105,7 @@ const GlobalHead = props => {
         content='width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0'
       /> */}
       <meta name='robots' content='follow, index' />
-      <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials" />
+      {/* <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials" /> */}
       {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */}
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
       <meta name="robots" content="noindex,nofollow" />
