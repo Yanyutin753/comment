@@ -1,4 +1,4 @@
-// import { compressImage } from '@/lib/notion/mapImage'
+import { compressImage } from '@/lib/notion/mapImage'
 import { isBrowser } from '../lib/utils'
 
 /**
@@ -19,7 +19,7 @@ export function PWA(post, siteInfo) {
     description: post?.summary || siteInfo.description,
     icons: [
       {
-        src: "/public/favicon.ico",
+        src: compressImage(post?.cover, 192),
         type: 'image/png',
         sizes: '192x192'
       }
