@@ -43,7 +43,6 @@ const GlobalHead = props => {
         sizes: '192x192'
       }
     ],
-    form_factor: 'phone',
     display: 'standalone',
     background_color: '#181818',
     theme_color: '#181818'
