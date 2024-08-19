@@ -4,7 +4,6 @@ import { loadExternalResource } from '@/lib/utils'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { compressImage } from '@/lib/notion/mapImage'
 
 /**
  * 页面的Head头，有用于SEO
