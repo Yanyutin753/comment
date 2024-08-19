@@ -106,7 +106,7 @@ const GlobalHead = props => {
       /> */}
       <meta name='robots' content='follow, index' />
       {/* <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials" /> */}
-      {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> */}
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
       <meta name="robots" content="noindex,nofollow" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
