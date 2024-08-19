@@ -1,4 +1,4 @@
-import { compressImage } from '@/lib/notion/mapImage'
+// import { compressImage } from '@/lib/notion/mapImage'
 import { isBrowser } from '../lib/utils'
 
 /**
@@ -7,7 +7,6 @@ import { isBrowser } from '../lib/utils'
  * @param {*} props
  * @returns
  */
-const coverImage = post?.cover ? compressImage(post.cover, 192) : '/public/favicon.ico';
 export function PWA(post, siteInfo) {
   if (!isBrowser || !post) {
     return
@@ -20,7 +19,7 @@ export function PWA(post, siteInfo) {
     description: post?.summary || siteInfo.description,
     icons: [
       {
-        src: coverImage,
+        src: "/public/favicon.ico",
         type: 'image/png',
         sizes: '192x192'
       }
