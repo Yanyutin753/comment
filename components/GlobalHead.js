@@ -32,28 +32,28 @@ const GlobalHead = props => {
   const webFontUrl = siteConfig('FONT_URL')
   const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
 
-  const manifestData = {
-    name: title,
-    short_name: title,
-    description: description,
-    icons: [
-      {
-        src: compressImage(favicon, 192),
-        type: 'image/png',
-        sizes: '192x192'
-      }
-    ],
-    display: 'standalone',
-    background_color: '#181818',
-    theme_color: '#181818'
-  }
+  // const manifestData = {
+  //   name: title,
+  //   short_name: title,
+  //   description: description,
+  //   icons: [
+  //     {
+  //       src: compressImage(favicon, 192),
+  //       type: 'image/png',
+  //       sizes: '192x192'
+  //     }
+  //   ],
+  //   display: 'standalone',
+  //   background_color: '#181818',
+  //   theme_color: '#181818'
+  // }
   
-  // 设置 manifest 的 href 为一个 Blob URL
-  const blobUrl = URL.createObjectURL(
-    new Blob([JSON.stringify(manifestData)], {
-      type: 'application/json'
-    })
-  )
+  // // 设置 manifest 的 href 为一个 Blob URL
+  // const blobUrl = URL.createObjectURL(
+  //   new Blob([JSON.stringify(manifestData)], {
+  //     type: 'application/json'
+  //   })
+  // )
   const SEO_BAIDU_SITE_VERIFICATION = siteConfig(
     'SEO_BAIDU_SITE_VERIFICATION',
     null,
