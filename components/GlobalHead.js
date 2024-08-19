@@ -4,35 +4,9 @@ import { loadExternalResource } from '@/lib/utils'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { PWA as initialPWA } from '@/components/PWA'
 
 
-const manifestData = {
-  id: post?.id,
-  name: post?.title + ' | ' + siteInfo.title,
-  short_name: post?.title,
-  description: post?.summary || siteInfo.description,
-  icons: [
-    {
-      src: compressImage(post?.cover, 192),
-      type: 'image/png',
-      sizes: '192x192'
-    }
-  ],
-  form_factor: 'phone',
-  start_url: window.location.href,
-  scope: window.location.href,
-  display: 'standalone',
-  background_color: '#181818',
-  theme_color: '#181818'
-}
 
-// 设置 manifest 的 href 为一个 Blob URL
-const blobUrl = URL.createObjectURL(
-  new Blob([JSON.stringify(manifestData)], {
-    type: 'application/json'
-  })
-)
 
 
 /**
@@ -41,6 +15,32 @@ const blobUrl = URL.createObjectURL(
  * @returns
  */
 const GlobalHead = props => {
+  const manifestData = {
+    id: post?.id,
+    name: post?.title + ' | ' + siteInfo.title,
+    short_name: post?.title,
+    description: post?.summary || siteInfo.description,
+    icons: [
+      {
+        src: compressImage(post?.cover, 192),
+        type: 'image/png',
+        sizes: '192x192'
+      }
+    ],
+    form_factor: 'phone',
+    start_url: window.location.href,
+    scope: window.location.href,
+    display: 'standalone',
+    background_color: '#181818',
+    theme_color: '#181818'
+  }
+  
+  // 设置 manifest 的 href 为一个 Blob URL
+  const blobUrl = URL.createObjectURL(
+    new Blob([JSON.stringify(manifestData)], {
+      type: 'application/json'
+    })
+  )
   const { children, siteInfo, post, NOTION_CONFIG } = props
   let url = siteConfig('PATH')?.length
     ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
