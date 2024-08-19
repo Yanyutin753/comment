@@ -13,33 +13,6 @@ import { compressImage } from '@/lib/notion/mapImage'
  */
 const GlobalHead = props => {
   const { children, siteInfo, post, NOTION_CONFIG } = props
-  const manifestData = {
-    id: post?.id,
-    name: post?.title + ' | ' + siteInfo.title,
-    short_name: post?.title,
-    description: post?.summary || siteInfo.description,
-    icons: [
-      {
-        src: compressImage(post?.cover, 192),
-        type: 'image/png',
-        sizes: '192x192'
-      }
-    ],
-    form_factor: 'phone',
-    start_url: window.location.href,
-    scope: window.location.href,
-    display: 'standalone',
-    background_color: '#181818',
-    theme_color: '#181818'
-  }
-  
-  // 设置 manifest 的 href 为一个 Blob URL
-  const blobUrl = URL.createObjectURL(
-    new Blob([JSON.stringify(manifestData)], {
-      type: 'application/json'
-    })
-  )
-
   let url = siteConfig('PATH')?.length
     ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
     : siteConfig('LINK')
@@ -59,6 +32,31 @@ const GlobalHead = props => {
   const webFontUrl = siteConfig('FONT_URL')
   const BACKGROUND_DARK = siteConfig('BACKGROUND_DARK', '', NOTION_CONFIG)
 
+  const manifestData = {
+    name: title,
+    short_name: title,
+    description: description,
+    icons: [
+      {
+        src: compressImage(favicon, 192),
+        type: 'image/png',
+        sizes: '192x192'
+      }
+    ],
+    form_factor: 'phone',
+    start_url: window.location.href,
+    scope: window.location.href,
+    display: 'standalone',
+    background_color: '#181818',
+    theme_color: '#181818'
+  }
+  
+  // 设置 manifest 的 href 为一个 Blob URL
+  const blobUrl = URL.createObjectURL(
+    new Blob([JSON.stringify(manifestData)], {
+      type: 'application/json'
+    })
+  )
   const SEO_BAIDU_SITE_VERIFICATION = siteConfig(
     'SEO_BAIDU_SITE_VERIFICATION',
     null,
