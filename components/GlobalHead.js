@@ -38,6 +38,7 @@ const GlobalHead = props => {
       type: 'application/json'
     })
   )
+  
   let url = siteConfig('PATH')?.length
     ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
     : siteConfig('LINK')
