@@ -19,7 +19,7 @@ export function PWA(post, siteInfo) {
     description: post?.summary || siteInfo.description,
     icons: [
       {
-        src: compressImage(post?.pageCoverThumbnail, 192),
+        src: "/public/favicon.ico",
         type: 'image/png',
         sizes: '192x192'
       }
