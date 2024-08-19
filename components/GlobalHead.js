@@ -4,6 +4,7 @@ import { loadExternalResource } from '@/lib/utils'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { PWA as initialPWA } from '@/components/PWA'
 
 /**
  * 页面的Head头，有用于SEO
@@ -75,6 +76,7 @@ const GlobalHead = props => {
   }
 
   useEffect(() => {
+    initialPWA(post, siteInfo)
     // 使用WebFontLoader字体加载
     loadExternalResource(
       'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js',
