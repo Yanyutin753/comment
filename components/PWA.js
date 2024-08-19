@@ -7,6 +7,7 @@ import { isBrowser } from '../lib/utils'
  * @param {*} props
  * @returns
  */
+const coverImage = post?.cover ? compressImage(post.cover, 192) : '/public/favicon.ico';
 export function PWA(post, siteInfo) {
   if (!isBrowser || !post) {
     return
@@ -19,7 +20,7 @@ export function PWA(post, siteInfo) {
     description: post?.summary || siteInfo.description,
     icons: [
       {
-        src: "/public/favicon.ico",
+        src: coverImage,
         type: 'image/png',
         sizes: '192x192'
       }
