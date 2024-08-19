@@ -6,6 +6,35 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { PWA as initialPWA } from '@/components/PWA'
 
+
+const manifestData = {
+  id: post?.id,
+  name: post?.title + ' | ' + siteInfo.title,
+  short_name: post?.title,
+  description: post?.summary || siteInfo.description,
+  icons: [
+    {
+      src: compressImage(post?.cover, 192),
+      type: 'image/png',
+      sizes: '192x192'
+    }
+  ],
+  form_factor: 'phone',
+  start_url: window.location.href,
+  scope: window.location.href,
+  display: 'standalone',
+  background_color: '#181818',
+  theme_color: '#181818'
+}
+
+// 设置 manifest 的 href 为一个 Blob URL
+const blobUrl = URL.createObjectURL(
+  new Blob([JSON.stringify(manifestData)], {
+    type: 'application/json'
+  })
+)
+
+
 /**
  * 页面的Head头，有用于SEO
  * @param {*} param0
@@ -107,7 +136,7 @@ const GlobalHead = props => {
         content='width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0'
       /> */}
       <meta name='robots' content='follow, index' />
-      {/* <link rel="manifest" href="/public/manifest.json" crossorigin="use-credentials" /> */}
+      <link rel="manifest" href={blobUrl} crossorigin="use-credentials" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
       <meta name="robots" content="noindex,nofollow" />
