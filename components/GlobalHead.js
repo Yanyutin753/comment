@@ -5,16 +5,13 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-
-
-
-
 /**
  * 页面的Head头，有用于SEO
  * @param {*} param0
  * @returns
  */
 const GlobalHead = props => {
+  const { children, siteInfo, post, NOTION_CONFIG } = props
   const manifestData = {
     id: post?.id,
     name: post?.title + ' | ' + siteInfo.title,
@@ -41,7 +38,6 @@ const GlobalHead = props => {
       type: 'application/json'
     })
   )
-  const { children, siteInfo, post, NOTION_CONFIG } = props
   let url = siteConfig('PATH')?.length
     ? `${siteConfig('LINK')}/${siteConfig('SUB_PATH', '')}`
     : siteConfig('LINK')
