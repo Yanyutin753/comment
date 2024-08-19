@@ -44,8 +44,6 @@ const GlobalHead = props => {
       }
     ],
     form_factor: 'phone',
-    start_url: window.location.href,
-    scope: window.location.href,
     display: 'standalone',
     background_color: '#181818',
     theme_color: '#181818'
